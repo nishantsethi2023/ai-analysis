@@ -5,6 +5,7 @@ import "./App.css";
 import pdf from "./assets/openpdf.jpg"
 import { devURL } from "./config/index.js"
 // import useFetch from './utils/fetch';
+import { Bars } from "react-loader-spinner";
 
 
 function App() {
@@ -16,6 +17,10 @@ function App() {
   const [messages, setMessages] = useState([
     { text: "Do you have any questions about this Competiscan product?", sender: "bot" },
   ]);
+
+  let [loading, setLoading] = useState(false);
+
+
   useEffect(() => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -41,10 +46,9 @@ function App() {
 
 }, []);
 
-
 const sendMessage = async () => {
   const url = `${devURL}send-msg`
-
+  setLoading(true)
   // Create headers
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -78,6 +82,7 @@ const sendMessage = async () => {
     console.log(result[0], "result");
     if(result[1] === 200){
       setsentMessage("Message is sent")
+      setLoading(false)
     }
   } catch (error) {
     console.error('Error:', error);
@@ -102,11 +107,12 @@ const handleKeyPress = (e) => {
   }
 };
 const userInputHandler = (e) => {
+  setsentMessage("")
   setuserChat(e.target.value)
   // setUserMsgs((prev) => [...prev, e.target.value])
 }
   return (
-    <div className="container-fluid d-flex justify-content-center align-items-center">
+    <div className="container-fluid d-flex justify-content-center align-items-center sweet-loading">
       <div className="row pdf-box" style={{ width: "100%" }}>
         <div className="col-5">
           <div className="big-box border  text-center">
@@ -136,6 +142,21 @@ const userInputHandler = (e) => {
         </div>
       ))}
     </div>
+{loading && (
+        <div className="spinner-overlay">
+          {/* <div className="spinner"></div> */}
+          <Bars
+  height={30}
+  width={30}
+  color="#0086ed"
+  ariaLabel="bbars-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+  />
+        </div>
+      )}
+{/* </div> */}
     <div className="input-container">
       <input 
         type="text" 

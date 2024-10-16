@@ -123,7 +123,18 @@ strong {
   }
   
 /*  */
-
+.loading-screen{
+    position: fixed; /* Cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dimmed background */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center the spinner */
+  z-index: 1000; /* Make sure the spinner is on top */
+}
 .chatbot {
     display: flex;
     flex-direction: column;
@@ -173,3 +184,47 @@ strong {
     background-color: #0056b3;
   }
   
+
+  .spinner-overlay {
+    position: fixed; /* Cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dimmed background */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the spinner */
+    z-index: 1000; /* Make sure the spinner is on top */
+  }
+  
+  .spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3); /* Light color for spinner border */
+    border-top: 4px solid white; /* White color for spinner top */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite; /* Spin animation */
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chat-message {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+  
+  .shady {
+    background-color: rgba(0, 0, 0, 0.1); /* Light shady effect */
+    color: black; /* Normal text color for shady boxes */
+  }
