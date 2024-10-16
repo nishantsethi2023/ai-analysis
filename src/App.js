@@ -77,7 +77,7 @@ const sendMessage = async () => {
     const result = await response.json();
     console.log(result[0], "result");
     if(result[1] === 200){
-      setsentMessage(result[0].message)
+      setsentMessage("Message is sent")
     }
   } catch (error) {
     console.error('Error:', error);
@@ -90,7 +90,7 @@ const handleSendMessage = () => {
   }
 };
 
-function clickme(){
+function submitBtnHandler(){
   handleSendMessage();
   sendMessage()
 }
@@ -98,6 +98,7 @@ function clickme(){
 const handleKeyPress = (e) => {
   if (e.key === 'Enter') {
     handleSendMessage();
+    sendMessage();
   }
 };
 const userInputHandler = (e) => {
@@ -139,13 +140,14 @@ const userInputHandler = (e) => {
       <input 
         type="text" 
         className="user-box" 
+        value={userChat} 
         onChange={userInputHandler} 
         onKeyDown={handleKeyPress} 
       />
       <button 
         type="submit" 
         className="submit-btn" 
-        onClick={clickme}
+        onClick={submitBtnHandler}
       >
         <i className="bi bi-arrow-up uparrowicon"></i>
       </button>
