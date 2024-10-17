@@ -8,18 +8,23 @@
 .pdf-box{
     padding: 3em;
 }
-/* .small-box {
-    height: 100vh;
-} */
+.small-box {
+  background: #eee;
+    padding: 20px;
+    border-radius: 20px;
+    border: #d2d2d2;
+}
 
 
 
 .summary {
-    border: 1px solid black;
+    border: 1px solid #d2d0d0;
     border-radius: 40px;
     font-size: 12px;
     margin-bottom: 3em;
-    height: 38vh;
+    height: auto;
+    font-size: 1.1rem;
+    background-color: #ffff;
 }
 
 /* .chatbot{
@@ -147,6 +152,8 @@ strong {
     height: 400px; /* Adjust as needed */
     border: 1px solid #ddd;
     padding: 10px;
+    border-radius: 16px;
+    background: #ffff;
   }
   
   .messages {
