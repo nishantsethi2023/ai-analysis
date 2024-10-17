@@ -48,7 +48,7 @@ function App() {
 
 const sendMessage = async () => {
   const url = `${devURL}send-msg`
-  setLoading(true)
+  //setLoading(true)
   // Create headers
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
