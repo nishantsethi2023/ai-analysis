@@ -6,6 +6,7 @@ const useFetch = (url, options = {}) => {
     const [error, setError] = useState(null);
 
     const fetchData = async(url,options ) => {
+        console.log(url, "url")
         try{
             const response = await fetch(url, {
                 method: options.method || 'GET',
@@ -29,8 +30,8 @@ const useFetch = (url, options = {}) => {
         }
         };
     useEffect(() => {
-        console.log(url, options, 232);
-        // fetchData();
+        // console.log(url, options, 232);
+        fetchData();
 
     },[url, options])
     return {data, loading, error};

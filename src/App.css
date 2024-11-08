@@ -25,8 +25,12 @@
     height: auto;
     font-size: 1.1rem;
     background-color: #ffff;
+    padding: 1rem;
+    height: 20rem;
 }
-
+.summary h3 {
+  text-align: center;
+}
 /* .chatbot{
     border: 1px solid black;
     border-radius: 40px;
